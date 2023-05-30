@@ -1,0 +1,19 @@
+package org.project;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class OrangeWebsite {
+
+	public static void main(String[] args) {
+		System.setProperty("webdriver.chrome.driver", "C:\\Users\\user\\eclipse-workspace\\OrangeProjrct\\src\\main\\resources\\Driver\\chromedriver.exe");
+		WebDriver site = new ChromeDriver();
+		site.get("https://admin-demo.nopcommerce.com/admin/");
+		site.findElement(By.xpath("//input[@id='Email']")).sendKeys("admin@yourstore.com");
+		
+		
+	}
+
+}

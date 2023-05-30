@@ -1,0 +1,64 @@
+package org.firfoxtest;
+
+import java.util.List;
+import java.util.Set;
+
+import org.openqa.selenium.Alert;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.firefox.FirefoxDriver;
+
+public class ValidationClass {
+
+	public static void main(String[] args) throws InterruptedException {
+		
+		System.setProperty("webdriver.gecko.driver","C:\\Users\\user\\eclipse-workspace\\FirFoxDriverSelinium\\Firefoxdriver\\geckodriver.exe");
+		WebDriver e = new FirefoxDriver();
+		e.get("https://demo.automationtesting.in/Alerts.html");
+		
+//		e.findElement(By.xpath("//button[@onclick='alertbox()']")).click();
+//		e.findElement(By.xpath("//a[text()='Alert with OK & Cancel ']")).click();
+//		e.findElement(By.xpath("//button[@onclick=\"confirmbox()\"]")).click();
+//		
+//		Alert s = e.switchTo().alert();
+//		s.dismiss();
+		
+		e.findElement(By.xpath("//a[text()='Alert with Textbox ']")).click();
+		e.findElement(By.xpath("//button[text()='click the button to demonstrate the prompt box ']")).click();
+		
+		Alert s = e.switchTo().alert();
+		
+		s.sendKeys("kkkkkkkkkk");
+		Thread.sleep(2000);
+		s.accept();
+	
+		
+//		boolean enable = e.findElement(By.xpath("//input[@id='password']")).isDisplayed();
+//		boolean enable1 = e.findElement(By.xpath("//input[@id='password']")).isEnabled();
+//		System.out.println(enable);
+//		System.out.println(enable1);
+		
+//		List<WebElement> fs = e.findElements(By.xpath("//input[@class='form-control']"));
+//		for (int i = 0; i < fs.size(); i++) {
+//			fs.get(i).sendKeys("login");
+//			Thread.sleep(1000);
+//		e.findElement(By.xpath("//a[text()=\"Open New Seperate Windows\"]")).click();
+//		e.findElement(By.xpath("//button[text()=\"click\"]")).click();
+//		Set<String> window = e.getWindowHandles();
+//		
+//		for (String string : window) {
+//			e.switchTo().window(string);
+//			String s = e.getTitle();
+//			System.out.println(s);
+		
+	
+		
+		
+			
+	
+		
+
+	}
+
+}

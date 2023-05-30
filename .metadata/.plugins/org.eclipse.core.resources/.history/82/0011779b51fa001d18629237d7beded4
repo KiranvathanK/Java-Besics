@@ -1,0 +1,10 @@
+package org.project;
+
+public class OrangeWebsite {
+
+	public static void main(String[] args) {
+		System.setProperty("webdriver.chrome.driver", "C:\\Users\\user\\eclipse-workspace\\OrangeProjrct\\src\\main\\resources\\Driver\\chromedriver.exe");
+
+	}
+
+}

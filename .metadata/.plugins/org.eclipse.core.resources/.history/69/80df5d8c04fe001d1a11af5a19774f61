@@ -1,0 +1,273 @@
+package org.project;
+
+
+import java.awt.AWTException;
+import java.awt.Robot;
+import java.awt.event.KeyEvent;
+import java.time.Duration;
+import java.util.Iterator;
+import java.util.Set;
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.Select;
+
+public class Amazon {
+
+	public static void main(String[] args) throws AWTException, InterruptedException {
+		System.setProperty("webdriver.chrome.driver", "C:\\Users\\user\\eclipse-workspace\\OrangeProjrct\\src\\main\\resources\\Driver\\chromedriver.exe");
+		WebDriver site = new ChromeDriver();
+		site.get("https://www.google.com");
+		site.navigate().to("https://www.amazon.in/");
+		site.manage().window().maximize();
+		String title = site.getTitle();
+		System.out.println(title);
+		String currentUrl = site.getCurrentUrl();
+		System.out.println(currentUrl);
+		String pageSource = site.getPageSource();
+		System.out.println(pageSource);
+		site.findElement(By.xpath("//a[text()='Sell']")).click();
+		site.findElement(By.xpath("//a[text()='Sell']")).getText();
+		site.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+		//////////////////
+		
+		
+		
+		
+		
+		
+		////////////
+		
+		
+		site.findElement(By.xpath("//a[text()='New Releases']")).click();
+		WebElement bp = site.findElement(By.xpath("//a[text()=\"Baby Products\"]"));
+		
+		Actions b = new Actions(site);
+		b.moveToElement(bp).perform();
+		site.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+		Thread.sleep(3000);
+		b.click().perform();
+		
+		site.findElement(By.xpath("//img[@alt='NSTER Silicon Corner Protector for Sharp Edges Table Corner Protector for Baby Bed Corners Edge Protector Child Safety Corner']")).click();
+		WebElement q = site.findElement(By.xpath("//select[@id=\"quantity\"]"));
+		q.click();
+		Select qa = new Select(q);
+		site.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+		Thread.sleep(2000);
+		qa.selectByIndex(2);
+		site.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+		Thread.sleep(2000);
+		qa.selectByValue("3");
+		site.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+		Thread.sleep(2000);
+		qa.selectByVisibleText("5");
+		site.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+		Thread.sleep(2000);
+		site.findElement(By.xpath("//input[@title=\"Add to Shopping Cart\"]")).click();
+		site.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+		Thread.sleep(2000);
+		
+		site.findElement(By.xpath("//input[@class=\"a-button-input\"]")).click();//delete the product
+		site.findElement(By.xpath("//span[@class=\"a-button-inner\"]")).click();//and goto cart tab
+		
+		
+		site.findElement(By.xpath("//a[text()='New Releases']")).click();
+		Thread.sleep(2000);
+		site.findElement(By.xpath("//a[text()=\"Movers and Shakers\"]")).click();
+		Thread.sleep(2000);
+		site.findElement(By.xpath("//a[text()=\"Most Wished For\"]")).click();
+		Thread.sleep(2000);
+		site.findElement(By.xpath("//a[text()=\"Most Gifted\"]")).click();
+		
+	
+		
+		
+	
+		
+
+
+		Thread.sleep(2000);
+		site.findElement(By.xpath("//a[text()=' Electronics ']")).click();
+		site.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+		Thread.sleep(2000);
+		site.findElement(By.xpath("//span[text()=\"New\"]")).click();
+		site.findElement(By.xpath("//span[text()=\"OnePlus Bullets Z2 Bluetooth Wireless in Ear Earphones with Mic, Bombastic Bass - 12.4 Mm Drivers, 10 Mins Charge - 20 Hrs Music, 30 Hrs Battery Life (Magico Black)\"]")).click();
+		
+		Set<String> child = site.getWindowHandles();
+		System.out.println(child);
+		
+		
+		Iterator<String> iterator = child.iterator();
+		String parentWindow = iterator.next();
+		String childWindow = iterator.next();
+		site.switchTo().window(childWindow);
+		site.findElement(By.xpath("//input[@title=\"Add to Shopping Cart\"]")).click();
+		site.switchTo().window(parentWindow);
+		
+		site.findElement(By.xpath("//span[text()=\"Accessories\"]")).click();
+		site.findElement(By.xpath("//span[text()=\"Tablet Accessories\"]")).click();
+		
+		
+		site.findElement(By.xpath("//a[text()='New Releases']")).click();
+		site.findElement(By.xpath("//div[text()='UZQIC Umbrella Umbrella for Men, Umberallas for Rain Big Size Men, Windproof Umberalla Large for Man,Women,Kids,Girls,Boys - 3…']")).click();
+		WebElement findElement = site.findElement(By.xpath("//select[@name='quantity']"));
+		findElement.click();
+	
+		Robot a = new Robot();
+		a.keyPress(KeyEvent.VK_DOWN);
+		a.keyRelease(KeyEvent.VK_DOWN);
+		site.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+		Thread.sleep(2000);
+		
+		a.keyPress(KeyEvent.VK_DOWN);
+		a.keyRelease(KeyEvent.VK_DOWN);
+		site.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+		Thread.sleep(2000);
+		
+		a.keyPress(KeyEvent.VK_ENTER);
+		a.keyRelease(KeyEvent.VK_ENTER);
+	
+		site.findElement(By.id("add-to-cart-button")).click();
+		site.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+		Thread.sleep(1000);
+		
+		
+		
+		WebElement delete = site.findElement(By.xpath("//input[@title=\"Delete\"]"));
+		Actions del = new Actions(site);
+		del.moveToElement(delete).perform();	
+		del.click().perform();	
+		
+		
+		
+		
+		
+		
+		
+		////////////////////////
+		site.findElement(By.xpath("//a[text()='Best Sellers']")).click();
+		site.findElement(By.xpath("//div[text()='Rs.500 Sony PlayStation Network Wallet Top-Up (Email Delivery in…']")).click();
+		site.findElement(By.id("add-to-cart-button")).click();
+		site.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+		Thread.sleep(2000);
+		site.findElement(By.xpath("//input[@title='Delete']")).click();
+		
+		site.findElement(By.xpath("//a[text()='Sell']")).click();
+		site.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+		Thread.sleep(3000);
+		
+		
+	
+
+		
+		site.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+		Thread.sleep(2000);
+		site.findElement(By.xpath("//a[text()=\"Today's Deals\"]")).click();
+		WebElement el = site.findElement(By.xpath("//span[text()='Under ₹500']"));
+		el.click();
+		
+		JavascriptExecutor js = (JavascriptExecutor) site;
+		js.executeScript("window.scrollBy(0,350)", "");
+	
+		Actions ch = new Actions(site);
+		ch.moveToElement(el).perform();
+		site.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+		Thread.sleep(3000);
+		ch.click().perform();
+
+		
+
+		
+
+		
+		
+		
+		
+		
+		
+		site.findElement(By.xpath("//a[text()='Customer Service']")).click();
+		JavascriptExecutor j = (JavascriptExecutor) site;
+		j.executeScript("window.scrollTo(0, document.body.scrollHeight)", "");	
+		site.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+		Thread.sleep(3000);
+	
+		site.findElement(By.id("nav-global-location-data-modal-action")).click();
+		Robot locate = new Robot();
+		locate.keyPress(KeyEvent.VK_ESCAPE);
+		locate.keyRelease(KeyEvent.VK_ESCAPE);
+		Thread.sleep(3000);
+		
+		
+		WebElement search= site.findElement(By.id("twotabsearchtextbox"));
+		search.sendKeys("iphone 13 red");
+		Robot searchEnter = new Robot();
+		searchEnter.keyPress(KeyEvent.VK_ENTER);
+		searchEnter.keyRelease(KeyEvent.VK_ENTER);
+		
+		
+		
+		site.findElement(By.id("nav-cart")).click();
+		site.findElement(By.name("proceedToRetailCheckout")).click();
+		site.findElement(By.id("ap_email")).sendKeys("If_Need_Products_Login&BUY@Thank_You.com");
+		
+		
+		
+		
+		
+		
+		
+///////////////////////////////////tired some other cases///////////////////////////////////////////////		
+//		for (String string : child) {
+//			System.out.println(string);
+//			Thread.sleep(2000);
+//			site.switchTo().window(string);
+//			Thread.sleep(3000);
+//			site.findElement(By.xpath("//span[text()=\"Add to Cart\"]")).click();
+			
+		
+		//}
+		//site.findElement(By.xpath("//span[text()='Cameras']")).click();
+//		site.findElement(By.xpath("//span[text()='Made for Amazon']")).click();
+		
+		
+		
+//		Thread.sleep(3000);
+//		site.findElement(By.xpath("//a[text()='Mobiles']")).click();
+//		site.findElement(By.xpath("//img[@alt='oppo A78']")).click();
+//		
+//		WebElement checkbox1 = site.findElement(By.id("mbb-offeringID-1"));
+//		checkbox1.click();
+//		
+//		
+//		
+////		Thread.sleep(2000);
+//		site.findElement(By.xpath("//div[@class='ssf-background']")).click();
+//		site.findElement(By.xpath("//span[text()='Facebook']")).click();
+//
+//		Set<String> child = site.getWindowHandles();
+//		for (String string : child) {
+//			System.out.println(string);
+//			site.switchTo().window(string);
+//			//site.findElement(By.xpath("//label[text()='Email address or phone number:']")).sendKeys("A@gmail.com");;
+//		}
+		
+//		for (String handle : child) {
+//			System.out.println(handle);
+//			if(!handle.equals(parent)) {
+				
+//				site.switchTo().window(handle);
+//				Thread.sleep(2000);
+//				site.findElement(By.xpath("//input[@aria-label='Search']")).sendKeys("h");
+				//site.findElement(By.xpath("//input[@class='D8X Hsu tBJ dyH iFc sAJ L4E Bvi iyn H_e pBj qJc TKt LJB xD4 z-6']")).sendKeys("k@oyut.com");
+	//		}
+	//	}
+/////////////////////////////////////////////end of tired cases///////////////////////////////////////			
+		
+	}
+
+}
